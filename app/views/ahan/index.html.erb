@@ -1,0 +1,21 @@
+<h1><%= @title %></h1>
+<p class="input"><%= @text %></p>
+<%= form_tag(controller: :ahan, action: :index) do %>
+  <%= text_field_tag("input1") %><br>
+  <%= check_box_tag("check") %>
+  <%= label_tag("check", "チェックしてね") %><br>
+  <%= radio_button_tag("radio", "バーミヤンラーメン") %>
+  <%= label_tag("radio_バーミヤンラーメン", "バーミヤンラーメン") %><br>
+  <%= radio_button_tag("radio", "バーミヤンチャーハン") %>
+  <%= label_tag("radio_バーミヤンチャーハン", "バーミヤンチャーハン") %><br>
+  <%= radio_button_tag("radio", "美味しいお水とドリンクバー") %>
+  <%= label_tag("radio_美味しいお水とドリンクバー", "美味しいお水とドリンクバー") %><br>
+  <%= select_tag("select",
+                 options_for_select(["Windows", "MacOS", "Linux"]),
+                 {size: 5, multiple: true}
+                ) %>
+  <%= submit_tag("click") %>
+<% end %>
+<p><%= @checked %></p>
+<p><%= @radio %></p>
+<p><%= @selected %></p>
