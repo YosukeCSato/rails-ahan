@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_27_140551) do
+ActiveRecord::Schema.define(version: 2019_12_31_161249) do
+
+  create_table "albums", force: :cascade do |t|
+    t.text "artist"
+    t.text "title"
+    t.integer "year"
+    t.text "format"
+    t.integer "price"
+    t.integer "rates"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.text "title"
+    t.text "author"
+    t.integer "price"
+    t.text "publisher"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "person_id"
+    t.text "title"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "people", force: :cascade do |t|
     t.text "name"

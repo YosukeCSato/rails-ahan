@@ -1,0 +1,4 @@
+<a><%= @album.title %>を削除しますか？</p>
+  <%= form_for(@album, url: { controller: :albums, action: :delete }) do |form| %>
+  <%= form.submit "削除" %>
+<% end %>

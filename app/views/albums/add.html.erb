@@ -1,0 +1,21 @@
+<h1>Albums#add</h1>
+<table>
+  <%= form_for(@album, url: { controller: :albums, action: :add }) do |form| %>
+    <tr><th>Artist</th>
+      <td><%= form.text_field :artist %></td></tr>
+    <tr><th>Title</th>
+      <td><%= form.text_field :title %></td></tr>
+    <tr><th>Year</th>
+      <td><%= form.text_field :year %></td></tr>
+    <tr><th>Format</th>
+      <td><%= form.text_field :format %></td></tr>
+    <tr><th>Price</th>
+      <td><%= form.text_field :price %></td></tr>
+    <tr><th>Rates</th>
+      <td><%= form.text_field :rates %></td></tr>
+    </tr>
+    <tr><th></th>
+      <td><%= form.submit "Save" %></td></tr>
+    </tr>
+  <% end %>
+    </table>

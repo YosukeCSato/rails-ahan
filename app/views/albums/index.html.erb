@@ -1,0 +1,30 @@
+<h1>購入したアルバム(Albums#index)</h1>
+<table>
+  <tr>
+    <th>Artist</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Format</th>
+    <th>Price</th>
+    <th>Rates</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+    <th></th>
+    <th></th>
+  </tr>
+<%= @albums.each do |album| %>
+  <tr>
+    <td><%= album.artist %></td>
+    <td><%= album.title %></td>
+    <td><%= album.year %></td>
+    <td><%= album.format %></td>
+    <td><%= album.price %></td>
+    <td><%= album.rates %></td>
+    <td><%= album.created_at %></td>
+    <td><%= album.updated_at %></td>
+    <td><a href="albums/edit/<%= album.id %>">Edit</a></td>
+    <td><a href="albums/delete/<%= album.id %>">Delete</a></td>
+  </tr>
+<% end %>
+</table>
+<p><a href="/albums/add">add your album</a></p>

@@ -1,0 +1,28 @@
+<h1>People#Find</h1>
+
+<p><%= @msg %></p>
+<table>
+  <%= form_tag(controller: :people, action: :find) do %>
+    <tr><th>FIND</th>
+      <td><%= text_field_tag("find") %></td></tr>
+    <tr><th></th>
+      <td><%= submit_tag("Click") %></td></tr>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<table>
+  <tr>
+    <th>ID</th><th>NAME</th><th>Age</th><th>Mail</th>
+  </tr>
+  <% @people.each do |obj| %>
+    <tr>
+      <td><%= obj.id %></td>
+      <td><%= obj.name %></td>
+      <td><%= obj.age %></td>
+      <td><%= obj.mail %></td>
+    </tr>
+  <% end %>
+</table>
+  <p><a href="/people">トップページに戻る</a></p>
+  <p><a href="/people/add">新規作成ページ</a></p>
