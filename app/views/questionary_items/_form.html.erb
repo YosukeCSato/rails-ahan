@@ -12,16 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label "質問内容" %>
     <%= form.text_area :content %>
   </div>
 
   <div class="field">
     <%= form.label :questionary_id %>
+    <%= @questionary.title %>
     <%= form.number_field :questionary_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "選択肢の作成" %>
   </div>
 <% end %>

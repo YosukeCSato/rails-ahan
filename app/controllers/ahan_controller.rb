@@ -1,30 +1,21 @@
 class AhanController < ApplicationController
   layout 'ahan'
 
+  before_action :authenticate_account!, only: :login_check
+
   def index
     @header = 'layout sample'
     @footer = 'フッターです'
-    @title = 'あなたが入力したのは！！'
-    @text = params[:input1]
-    @radio = params[:radio]
-    if params[:select]
-      @selected = ''
-      for val in params[:select]
-        @selected += val + ' '
-      end
-    end
-    if params[:check]
-      @checked = 'チェックしましたねあはん'
-    end
-    if request.post? && params[:input1].empty?
-      @title = 'ahan/postが呼ばれましたけども入力していませんな'
-      @text = '何かを入力してください。'
-    end
-    
-    if request.get?
-      @title = 'Requestがgetでahah/indexアクションを呼びました'
-      @msg = 'type text...'
-    end
+    @title = 'あはんあはん、言語道断魑魅魍魎！！'
+    @msg = 'this is sample page'
+  end
+
+  def login_check
+    @account = current_account
+    @msg = 'you logged in at: ' + @account.current_sign_in_at.to_s
+    @count = @account.sign_in_count
+    @ip = @account.last_sign_in_ip
+    @password = @account.encrypted_password
   end
   
   def ahan

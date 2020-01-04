@@ -1,5 +1,6 @@
-<h1>New Questionary Item</h1>
+<h1>質問の作成</h1>
+<p>「<%= @questionary.title %>」の質問</p>
 
-<%= render 'form', questionary_item: @questionary_item %>
+<%= render 'form', questionary_item: @questionary_item, questionary: @questionary %>
 
-<%= link_to 'Back', questionary_items_path %>
+<%= link_to 'アンケートに戻る', '/questionaries' %>

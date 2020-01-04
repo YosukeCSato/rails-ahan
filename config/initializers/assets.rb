@@ -1,4 +1,7 @@
 # Be sure to restart your server when you modify this file.
+Rails.application.config.assets.precompile += %w( ajax.css )
+Rails.application.config.assets.precompile += %w( ajax.js )
+
 Rails.application.config.assets.precompile += %w( questions.css )
 Rails.application.config.assets.precompile += %w( questions.js )
 

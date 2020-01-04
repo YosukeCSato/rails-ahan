@@ -1,5 +1,9 @@
 <h1><%= @title %></h1>
-<p class="input"><%= @text %></p>
+<p><%= @msg %></p>
+<hr>
+<div><%= link_to 'go to login_check page'.html_safe, { action: :login_check } %></div>
+<div><%= link_to 'sign out'.html_safe, destroy_account_session_path, method: :delete %></div>
+<hr>
 <%= form_tag(controller: :ahan, action: :index) do %>
   <%= text_field_tag("input1") %><br>
   <%= check_box_tag("check") %>

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :board_messages
+  resources :board_users
+  resources :data_pages
+  devise_for :accounts
+  root 'ahan#index'
+
+  get 'ajax/index'
+  get 'ajax/data'
   resources :questionary_results
   resources :questionary_choices
   resources :questionary_items
@@ -6,6 +14,11 @@ Rails.application.routes.draw do
   resources :answers
   resources :questions
   resources :mycontacts
+
+  get 'questionary_results/calc/:id', to: 'questionary_results#calc'
+  get 'questionary_choices/new/:id', to: 'questionary_choices#new'
+  get 'questionary_items/new/:id', to: 'questionary_items#new'
+  post 'questionaries/:id', to: 'questionaries#sendform'
 
   get 'blogs/index'
   get 'blogs', to: 'blogs#index'
@@ -84,6 +97,7 @@ Rails.application.routes.draw do
 
   get 'dengonban/index'
   get 'ahan/index'
+  get 'ahan/login_check'
   get 'ahan', to: 'ahan#index'
   get 'ahan/ahan'
   get 'uhihi', to: 'ahan#uhihi'

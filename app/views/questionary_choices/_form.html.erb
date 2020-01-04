@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label "選択肢の値（ラジオボタンで作成されます）" %>
+    <%= form.text_field :content %>
   </div>
 
   <div class="field">
-    <%= form.label :value %>
+    <%= form.label "何番目の質問ですか？" %>
     <%= form.number_field :value %>
   </div>
 

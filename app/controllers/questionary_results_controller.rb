@@ -1,15 +1,38 @@
 class QuestionaryResultsController < ApplicationController
   before_action :set_questionary_result, only: [:show, :edit, :update, :destroy]
 
+  def calc
+    @questionary = Questionary.find(params[:id])
+    results = QuestionaryResult.where('questionary_id = ?', params[:id])
+    @calc = {}
+    results.each do |result|
+      data = result.result.split(',')
+      data.each do |value|
+        keyval = value.split(':')
+        key = keyval[0].to_s
+        vl = keyval[1].to_i
+        if key != 'question_id' then
+          if @calc[key] == nil then
+            @calc[key] = []
+          end
+          @calc[key][vl] = @calc[key][vl] == nil ? 1 : @calc[key][vl].to_i + 1
+        end
+      end
+    end
+  end
+
   # GET /questionary_results
   # GET /questionary_results.json
   def index
-    @questionary_results = QuestionaryResult.all
+    @questionaries = Questionary.all
+    # questionaryデータを全部表示
   end
 
   # GET /questionary_results/1
   # GET /questionary_results/1.json
   def show
+    @questionary = Questionary.find(params[:id])
+    @questionary_results = QuestionaryResult.where('questionary_id = ?', params[:id])
   end
 
   # GET /questionary_results/new
