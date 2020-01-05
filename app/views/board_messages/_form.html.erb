@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :board_user_id %>
-    <%= form.number_field :board_user_id %>
+    <%= form.label '投稿者' %>
+    <%= @board_user.nickname %><%= form.hidden_field :board_user_id %>
   </div>
 
   <div class="actions">

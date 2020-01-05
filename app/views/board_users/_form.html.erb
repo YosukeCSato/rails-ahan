@@ -13,14 +13,9 @@
 
   <div class="field">
     <%= form.label :nickname %>
-    <%= form.text_area :nickname %>
+    <%= form.text_field :nickname %>
   </div>
-
-  <div class="field">
-    <%= form.label :account_id %>
-    <%= form.number_field :account_id %>
-  </div>
-
+    <%= form.hidden_field :account_id %>
   <div class="field">
     <%= form.label :introduce %>
     <%= form.text_area :introduce %>
